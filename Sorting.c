@@ -1,5 +1,13 @@
 #include<stdio.h>
+#include<math.h>
 
+//Function to swap numbers
+void swap(int *a, int *b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
 // Function to print an array of size n
 void printArray(int arr[], int n)
 {
@@ -25,6 +33,25 @@ void insertionSort(int arr[], int n)
     }
 }
 
+// SELECTION SORT
+void selectionSort(int arr[], int n)
+{
+    int i, j, min;
+
+    for (i = 0; i < n-1; i++)
+    {
+        // find the minimum element in unsorted array
+        min = i;
+        for (j = i+1; j < n; j++)
+          if (arr[j] < arr[min])
+            min = j;
+
+        // swap the minimum element with the first element
+           if(min != i)
+            swap(&arr[min], &arr[i]);
+    }
+}
+
 int main(){
   int sort;
   int n;
@@ -42,6 +69,12 @@ int main(){
     case 1:
     printf("Sorted array using Insertion Sort: \n");
     insertionSort(arr, n);
+    printArray(arr, n);
+    break;
+
+    case 2:
+    printf("Sorted array using Selection Sort: \n");
+    selectionSort(arr, n);
     printArray(arr, n);
     break;
   }
