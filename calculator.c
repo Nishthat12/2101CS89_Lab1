@@ -30,6 +30,9 @@ int main(){
     case 4:
         printf("%.1lf / %.1lf = %.1lf\n", a, b, a / b);
         break;
+
+    default:
+        printf("Error! Enter a valid number for the operation\n");
     }
   }
   return 0;
