@@ -22,6 +22,10 @@ int main(){
     case 2:
         printf("%.1lf - %.1lf = %.1lf\n", a, b, a - b);
         break;
+
+    case 3:
+        printf("%.1lf * %.1lf = %.1lf\n", a, b, a * b);
+        break;
     }
   }
   return 0;
