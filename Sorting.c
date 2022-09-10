@@ -203,6 +203,11 @@ int main(){
     quickSort(arr, 0, n - 1);
     printArray(arr, n);
     break;
+
+    default:
+    printf("Error! Enter a valid number for the type of sort\n");
+    break;
+    }
   }
   return 0;
 }
