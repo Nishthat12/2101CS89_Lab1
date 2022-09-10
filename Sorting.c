@@ -120,6 +120,46 @@ void mergeSort(int arr[], int l, int r)
     }
 }
 
+// QUICK SORT
+// function to find the partition position
+int partition(int array[], int low, int high) {
+
+  int pivot = array[high];
+
+  // pointer for greater element
+  int i = (low - 1);
+
+  // traverse each element of the array
+  // compare them with the pivot
+  for (int j = low; j < high; j++) {
+    if (array[j] <= pivot) {
+
+      // if element smaller than pivot is found
+      // swap it with the greater element pointed by i
+      i++;
+
+      // swap element at i with element at j
+      swap(&array[i], &array[j]);
+    }
+  }
+
+  // swap the pivot element with the greater element at i
+  swap(&array[i + 1], &array[high]);
+
+  // return the partition point
+  return (i + 1);
+}
+void quickSort(int array[], int low, int high) {
+  if (low < high) {
+
+    // find the pivot element
+    int pi = partition(array, low, high);
+
+    quickSort(array, low, pi - 1);
+    quickSort(array, pi + 1, high);
+  }
+}
+
 int main(){
   int sort;
   int n;
@@ -155,6 +195,12 @@ int main(){
     case 4:
     printf("Sorted array using Merge Sort: \n");
     mergeSort(arr, 0, n - 1);
+    printArray(arr, n);
+    break;
+
+    case 5:
+    printf("Sorted array using Quick Sort: \n");
+    quickSort(arr, 0, n - 1);
     printArray(arr, n);
     break;
   }
